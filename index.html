@@ -52,6 +52,45 @@
 	<link rel="stylesheet" type="text/css" href="assets/vendors/revolution/css/settings.css">
 	<link rel="stylesheet" type="text/css" href="assets/vendors/revolution/css/navigation.css">
 	<!-- REVOLUTION SLIDER END -->	
+	<!-- CSS à ajouter -->
+
+<style>
+.menu-tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+/* Infobulle moderne sous le menu */
+.tooltip-modern {
+    opacity: 0;
+    visibility: hidden;
+    background: #EFBB20;
+    color: #fff;
+    padding: 12px 15px;
+    border-radius: 12px;
+    position: absolute;
+    top: 100%; /* juste sous le menu */
+    left: 50%;
+    transform: translateX(-50%) translateY(10px) scale(0.9);
+    transition: all 0.25s ease;
+    white-space: nowrap;
+    font-size: 0.9em;
+    font-weight: 500;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    gap:5px;
+    z-index: 100;
+}
+
+.menu-tooltip:hover .tooltip-modern {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0) scale(1);
+    pointer-events: auto;
+}
+</style>
 	
 </head>
 <body id="bg">
@@ -105,20 +144,34 @@
 						<div class="menu-logo">
 							<a href="index.html"><img src="assets/images/logo.png" alt=""></a>
 						</div>
-                        <ul class="nav navbar-nav">	
-							<li class="active">
-								<a href="index.html"><i class="fa fa-home"></i>&nbsp;Accueil</i></a>
-							</li>
-							<li>
-								<a href="#">&nbsp;Tableau de bord</i></a>
-							</li>
-							<li class="nav-dashboard"><a href="#">&nbsp;Qr code</a>
-							</li>
-							<li class="nav-dashboard"><a href="#">&nbsp;IA Flexi</a>
-							</li>
-							
-							
-						</ul>
+                        <!-- Menu avec infobulles -->
+<ul class="nav navbar-nav">    
+    <li class="active">
+        <a href="index.html"><i class="fa fa-home"></i>&nbsp;Accueil</a>
+    </li>
+    <li class="menu-tooltip">
+        <a href="#tableau-bord">&nbsp;Tableau de bord</a>
+        <div class="tooltip-modern">
+            <i class="fa fa-info-circle" style="margin-right:5px;"></i>
+            Accédez à votre espace personnalisé pour suivre vos commandes et vos préférences.
+        </div>
+    </li>
+    <li class="menu-tooltip">
+        <a href="#qr-code">&nbsp;QR Code</a>
+        <div class="tooltip-modern">
+            <i class="fa fa-qrcode" style="margin-right:5px;"></i>
+            Scannez vos box pour obtenir toutes les informations sur vos repas.
+        </div>
+    </li>
+    <li class="menu-tooltip">
+        <a href="#ia-flexi">&nbsp;IA Flexi</a>
+        <div class="tooltip-modern">
+            <i class="fa fa-robot" style="margin-right:5px;"></i>
+            Découvrez notre coach santé et sport pour des conseils personnalisés.
+        </div>
+    </li>
+</ul>
+
 						
                     </div>
 					<!-- Navigation Menu END ==== -->
