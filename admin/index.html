@@ -49,6 +49,126 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/dashboard.css">
 	<link class="skin" rel="stylesheet" type="text/css" href="assets/css/color/color-1.css">
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<style>
+  
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      padding: 40px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 20px;
+    }
+    h3 {
+      color: #0d8643;
+      margin-bottom: 20px;
+    }
+    .progress-bar {
+      height: 20px;
+      width: 80%;
+      background: #e0e0e0;
+      border-radius: 10px;
+      margin: auto;
+      overflow: hidden;
+      position: relative;
+    }
+    .progress {
+      height: 100%;
+      background: #3ccf6e;
+      width: 85%; /* 850/1000 pts */
+      transition: width 0.5s ease;
+    }
+  </style>
+   <style>
+   
+    .top-image {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 25px;
+    }
+
+    h2 {
+      color: #0d8643;
+      font-size: 22px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card {
+      text-align: center;
+    }
+
+    .points-circle {
+      width: 120px;
+      height: 120px;
+      background: #0d8643;
+      color: white;
+      font-weight: bold;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 20px auto;
+      box-shadow: 0 0 15px rgba(13,134,67,0.3);
+      flex-direction: column;
+    }
+
+    .progress-container {
+      width: 80%;
+      margin: 20px auto;
+    }
+
+    .progress-bar {
+      height: 14px;
+      background: #e0e0e0;
+      border-radius: 7px;
+      overflow: hidden;
+    }
+
+    .progress {
+      height: 100%;
+      background: #3ccf6e;
+      width: 85%; /* 850 / 1000 */
+    }
+
+    .icons {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 25px;
+    }
+
+    .icon {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: #f4f4f4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      color: #0d8643;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .icon:nth-child(2) { color: #0d8643; background: #eaffea; }
+    .icon:nth-child(3) { color: #2196f3; background: #eaf4ff; }
+    .icon:nth-child(4) { color: #999; background: #f1f1f1; }
+
+    .next-level {
+      margin-top: 10px;
+      color: #444;
+    }
+  </style>
 	
 </head>
 <body class="ttr-opened-sidebar ttr-pinned-sidebar">
@@ -79,79 +199,7 @@
 					<li>
 						<a href="#" class="ttr-material-button ttr-search-toggle"><i class="fa fa-search"></i></a>
 					</li>
-					<li>
-						<a href="#" class="ttr-material-button ttr-submenu-toggle"><i class="fa fa-bell"></i></a>
-						<div class="ttr-header-submenu noti-menu">
-							<div class="ttr-notify-header">
-								<span class="ttr-notify-text-top">Nouveau: 5</span>
-								<span class="ttr-notify-text">Notifications utilisateur</span>
-							</div>
-							<div class="noti-box-list">
-								<ul>
-									<li>
-										<span class="notification-icon dashbg-gray">
-											<i class="fa fa-comments-o"></i>
-										</span>
-										<span class="notification-text">
-											<span>Cynthia</span> Vous a envoyé un message.
-										</span>
-										<span class="notification-time">
-											<a href="#" class="fa fa-close"></a>
-											<span> 02:14</span>
-										</span>
-									</li>
-									<li>
-										<span class="notification-icon dashbg-yellow">
-											<i class="fa fa-comments-o"></i>
-										</span>
-										<span class="notification-text">
-											<a href="#">Prisca</a> Vous a envoyé un message.
-										</span>
-										<span class="notification-time">
-											<a href="#" class="fa fa-close"></a>
-											<span> 7 Min</span>
-										</span>
-									</li>
-									<li>
-										<span class="notification-icon dashbg-red">
-											<i class="fa fa-comments-o"></i>
-										</span>
-										<span class="notification-text">
-											<span>Harima</span> Vous a envoyé un message.
-										</span>
-										<span class="notification-time">
-											<a href="#" class="fa fa-close"></a>
-											<span> 2 May</span>
-										</span>
-									</li>
-									<li>
-										<span class="notification-icon dashbg-green">
-											<i class="fa fa-comments-o"></i>
-										</span>
-										<span class="notification-text">
-											<a href="#">Herilalaina</a> Vous a envoyé un message.
-										</span>
-										<span class="notification-time">
-											<a href="#" class="fa fa-comments-o"></a>
-											<span> 14 July</span>
-										</span>
-									</li>
-									<li>
-										<span class="notification-icon dashbg-primary">
-											<i class="fa fa-comments-o"></i>
-										</span>
-										<span class="notification-text">
-											<span>Niry</span> Vous a envoyé un message.
-										</span>
-										<span class="notification-time">
-											<a href="#" class="fa fa-close"></a>
-											<span> 15 Min</span>
-										</span>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</li>
+					
 					<li>
 						<a href="#" class="ttr-material-button ttr-submenu-toggle">
 							<span class="ttr-user-avatar">
@@ -160,9 +208,9 @@
 						</a>
 						<div class="ttr-header-submenu">
 							<ul>
-								<li><a href="user-profile.html">Mon profil</a></li>
-								<li><a href="list-view-calendar.html">Activité</a></li>
-								<li><a href="mailbox.html">Messages</a></li>
+								<li><a href="#">Mon profil</a></li>
+								<li><a href="#">Activité</a></li>
+								<li><a href="#">Messages</a></li>
 								<li><a href="../login.html">Déconnexion</a></li>
 							</ul>
 						</div>
@@ -232,47 +280,11 @@
 		                	<span class="ttr-label">Panneaux de configuration</span>
 		                </a>
 		            </li>
-					<li>
-						<a href="articles.html" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-book"></i></span>
-		                	<span class="ttr-label">Article</span>
-		                </a>
-		            </li>
+					
+					
+					
 					<li>
 						<a href="#" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-email"></i></span>
-		                	<span class="ttr-label">Mail</span>
-		                	<span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
-		                </a>
-		                <ul>
-		                	<li>
-		                		<a href="mailbox.html" class="ttr-material-button"><span class="ttr-label">Boîte de réception</span></a>
-		                	</li>
-		                	<li>
-		                		<a href="mailbox-compose.html" class="ttr-material-button"><span class="ttr-label">Ecrire</span></a>
-		                	</li>
-							<li>
-		                		<a href="mailbox-read.html" class="ttr-material-button"><span class="ttr-label">Message lu</span></a>
-		                	</li>
-		                </ul>
-		            </li>
-					<li>
-						<a href="#" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-calendar"></i></span>
-		                	<span class="ttr-label">Calendrier d'évènements</span>
-		                	<span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
-		                </a>
-		                <ul>
-		                	<li>
-		                		<a href="basic-calendar.html" class="ttr-material-button"><span class="ttr-label">Créer un évènements</span></a>
-		                	</li>
-		                	<li>
-		                		<a href="list-view-calendar.html" class="ttr-material-button"><span class="ttr-label">Liste des évènements</span></a>
-		                	</li>
-		                </ul>
-		            </li>
-					<li>
-						<a href="user-profile.html" class="ttr-material-button">
 							<span class="ttr-icon"><i class="ti-user"></i></span>
 		                	<span class="ttr-label">Mon profil</span>
 		                </a>
@@ -290,195 +302,88 @@
 	<main class="ttr-wrapper">
 		<div class="container-fluid">
 			<div class="db-breadcrumb">
-				<h4 class="breadcrumb-title">Dashboard</h4>
+			
+				<h1 class="breadcrumb-title">Mon tableau de bord</h1>
 				<ul class="db-breadcrumb-list">
-					<li><a href="#"><i class="fa fa-home"></i>Home</a></li>
+					<li><a href="#"><i class="fa fa-home"></i>Accueil</a></li>
 					<li>Dashboard</li>
 				</ul>
 			</div>	
 			<!-- Card -->
-			<div class="row">
-				<div class="col-md-6 col-lg-3 col-xl-3 col-sm-6 col-12">
-					<div class="widget-card widget-bg1">					 
-						<div class="wc-item">
-							<h4 class="wc-title">
-								Totaux
-							</h4>
-							<span class="wc-stats">
-								<span class="counter">18</span>M 
-							</span>		
-							<div class="progress wc-progress">
-								<div class="progress-bar" role="progressbar" style="width: 78%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-							<span class="wc-progress-bx">
-								<span class="wc-change">
-									Taux
-								</span>
-								<span class="wc-number ml-auto">
-									78%
-								</span>
-							</span>
-						</div>				      
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 col-xl-3 col-sm-6 col-12">
-					<div class="widget-card widget-bg2">					 
-						<div class="wc-item">
-							<h4 class="wc-title">
-								Utilisateurs
-							</h4>
-							<span class="wc-stats counter">
-								120 
-							</span>		
-							<div class="progress wc-progress">
-								<div class="progress-bar" role="progressbar" style="width: 88%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-							<span class="wc-progress-bx">
-								<span class="wc-change">
-									Taux
-								</span>
-								<span class="wc-number ml-auto">
-									88%
-								</span>
-							</span>
-						</div>				      
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 col-xl-3 col-sm-6 col-12">
-					<div class="widget-card widget-bg3">					 
-						<div class="wc-item">
-							<h4 class="wc-title">
-								Visite
-							</h4>
-							<span class="wc-stats counter">
-								772 
-							</span>		
-							<div class="progress wc-progress">
-								<div class="progress-bar" role="progressbar" style="width: 65%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-							<span class="wc-progress-bx">
-								<span class="wc-change">
-									Taux
-								</span>
-								<span class="wc-number ml-auto">
-									65%
-								</span>
-							</span>
-						</div>				      
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 col-xl-3 col-sm-6 col-12">
-					<div class="widget-card widget-bg4">					 
-						<div class="wc-item">
-							<h4 class="wc-title">
-								Membre
-							</h4>
-							
-							<span class="wc-stats counter">
-								350 
-							</span>		
-							<div class="progress wc-progress">
-								<div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-							<span class="wc-progress-bx">
-								<span class="wc-change">
-									Taux
-								</span>
-								<span class="wc-number ml-auto">
-									90%
-								</span>
-							</span>
-						</div>				      
-					</div>
-				</div>
-			</div>
+			
 			<!-- Card END -->
 			<div class="row">
 				<!-- Your Profile Views Chart -->
 				<div class="col-lg-12 m-b30">
 					<div class="widget-box">
-						<div class="wc-title">
-							<h4>Statistiques de fréquentation</h4>
-						</div>
 						<div class="widget-inner">
-							<canvas id="chart" width="100" height="45"></canvas>
+							<h2>🌿 Mon Impact Écologique</h2>
+						  <div class="dashboard">
+							<div class="card">
+							  <h3>Plastique Évité</h3>
+							  <canvas id="plastiqueChart" width="150" height="150"></canvas>
+							  <p><strong>2.4 kg</strong><br>Équivalent à 120 bouteilles</p>
+							</div>
+
+							<div class="card">
+							  <h3>CO₂ Économisé</h3>
+							  <canvas id="co2Chart" width="150" height="150"></canvas>
+							  <p><strong>5.1 kg</strong><br>Équivalent à 42 km en voiture</p>
+							</div>
+
+							<div class="card">
+							  <h3>Programme de Fidélité</h3>
+							  <p><strong>850 points</strong></p>
+							  <div class="progress-bar"><div class="progress"></div></div>
+							  <p>Prochain niveau : <strong>Éco-Warrior</strong></p>
+							</div>
+
+							<div class="card">
+							  <h3>Niveau d’Éco-Performance</h3>
+							  <canvas id="ecoChart" width="150" height="150"></canvas>
+							</div>
+						  </div>
 						</div>
 					</div>
 				</div>
-				<!-- Your Profile Views Chart END-->
-				
 				<div class="col-lg-12 m-b30">
 					<div class="widget-box">
-						<div class="wc-title">
-							<h4>Nouveaux utilisateurs</h4>
-						</div>
-						<div class="widget-inner">
-							<div class="new-user-list">
-								<ul>
-									<li>
-										<span class="new-users-pic">
-											<img src="assets/images/testimonials/pic3.jpg" alt=""/>
-										</span>
-										<span class="new-users-text">
-											<a href="#" class="new-users-name">Cynthia </a>
-											<span class="new-users-info">Redac </span>
-										</span>
-										<span class="new-users-btn">
-											<a href="#" class="btn button-sm outline">Détails</a>
-										</span>
-									</li>
-									<li>
-										<span class="new-users-pic">
-											<img src="assets/images/testimonials/pic3.jpg" alt=""/>
-										</span>
-										<span class="new-users-text">
-											<a href="#" class="new-users-name"> Herilalaina </a>
-											<span class="new-users-info">Redac </span>
-										</span>
-										<span class="new-users-btn">
-											<a href="#" class="btn button-sm outline">Détails</a>
-										</span>
-									</li>
-									<li>
-										<span class="new-users-pic">
-											<img src="assets/images/testimonials/pic3.jpg" alt=""/>
-										</span>
-										<span class="new-users-text">
-											<a href="#" class="new-users-name">Prisca  </a>
-											<span class="new-users-info">Redac </span>
-										</span>
-										<span class="new-users-btn">
-											<a href="#" class="btn button-sm outline">Détails</a>
-										</span>
-									</li>
-									<li>
-										<span class="new-users-pic">
-											<img src="assets/images/testimonials/pic3.jpg" alt=""/>
-										</span>
-										<span class="new-users-text">
-											<a href="#" class="new-users-name">Didier Patrick </a>
-											<span class="new-users-info">Correcteur </span>
-										</span>
-										<span class="new-users-btn">
-											<a href="#" class="btn button-sm outline">Détails</a>
-										</span>
-									</li>
-									<li>
-										<span class="new-users-pic">
-											<img src="assets/images/testimonials/pic3.jpg" alt=""/>
-										</span>
-										<span class="new-users-text">
-											<a href="#" class="new-users-name">Julien </a>
-											<span class="new-users-info">Visiteur  </span>
-										</span>
-										<span class="new-users-btn">
-											<a href="#" class="btn button-sm outline">Détails</a>
-										</span>
-									</li>
-								</ul>
+						  <div class="widget-inner">
+							<h2>🏆 Programme de Fidélité</h2>
+
+							<div class="dashboard">
+							  <!-- Colonne gauche -->
+							  <div class="left-side">
+								<div class="points-circle">
+								  850<br><small>points</small>
+								</div>
+							  </div>
+
+							  <!-- Colonne droite -->
+							  <div class="right-side">
+								<div class="progress-container">
+								  <div class="progress-bar">
+									<div class="progress"></div>
+								  </div>
+								  <p>Progression vers le prochain badge — 850 / 1000 pts</p>
+								</div>
+
+								<div class="icons">
+								  <div class="icon">🌱</div>
+								  <div class="icon">♻️</div>
+								  <div class="icon">🛡️</div>
+								  <div class="icon">🌍</div>
+								</div>
+
+								<p class="next-level">Prochain niveau : <strong>Éco-Warrior</strong></p>
+							  </div>
 							</div>
+						  </div>
 						</div>
-					</div>
+				</div>
+				<!-- Your Profile Views Chart END-->
+				
+				
 				</div>
 				
 				
@@ -585,6 +490,49 @@
   });
 
 </script>
+<script>
+    // Chart Plastique Évité
+    new Chart(document.getElementById('plastiqueChart'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Plastique Évité', 'Reste'],
+        datasets: [{
+          data: [24, 76],
+          backgroundColor: ['#3ccf6e', '#e6e6e6'],
+          borderWidth: 0
+        }]
+      },
+      options: { cutout: '70%', plugins: { legend: { display: false } } }
+    });
+
+    // Chart CO₂ Économisé
+    new Chart(document.getElementById('co2Chart'), {
+      type: 'doughnut',
+      data: {
+        labels: ['CO₂ économisé', 'Reste'],
+        datasets: [{
+          data: [51, 49],
+          backgroundColor: ['#3ca6ff', '#e6e6e6'],
+          borderWidth: 0
+        }]
+      },
+      options: { cutout: '70%', plugins: { legend: { display: false } } }
+    });
+
+    // Chart Éco-performance
+    new Chart(document.getElementById('ecoChart'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Performance', 'Reste'],
+        datasets: [{
+          data: [85, 15],
+          backgroundColor: ['#ffc107', '#f0f0f0'],
+          borderWidth: 0
+        }]
+      },
+      options: { cutout: '70%', plugins: { legend: { display: false } } }
+    });
+  </script>
 </body>
 
 <!-- Mirrored from educhamp.themetrades.com/demo/admin/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 22 Feb 2019 13:09:05 GMT -->
